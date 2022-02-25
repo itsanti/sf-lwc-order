@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-card slds-size_1-of-2" style="font-family: 'Open Sans', sans-serif">
+        <header class="slds-card__header slds-media slds-media_center">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:custom_notification" size="small"></lightning-icon>
+            </div>
+            <div class="slds-media__body slds-card__header-title slds-text-title_bold" style="font-size: 14px">
+                New Order
+            </div>
+        </header>
+        <lightning-record-edit-form object-api-name={orderObject} onsubmit={handleSubmit}
+            onsuccess={handleOrderCreated}>
+            <lightning-messages></lightning-messages>
+
+            <lightning-input-field field-name="Name"></lightning-input-field>
+            <lightning-input-field field-name="Total_Price__c"></lightning-input-field>
+            <lightning-input-field field-name="Payment_type__c"></lightning-input-field>
+            <lightning-input-field field-name="Payment_period__c"></lightning-input-field>
+
+            <c-lookup-search ongetsearchvalue={handleSearchValue}></c-lookup-search>
+
+            <div class="slds-align_absolute-center">
+                <lightning-button class="slds-button" type="submit" label="Create new Order"></lightning-button>
+            </div>
+        </lightning-record-edit-form>
+    </div>
+</template>
